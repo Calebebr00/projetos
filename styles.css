@@ -1,67 +1,141 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>História do Mundo</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- ScrollReveal CDN -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-</head>
-<body>
-    <header>
-        <nav aria-label="Menu principal">
-            <button id="menu-toggle" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">☰</button>
-            <ul id="menu" class="menu" tabindex="0">
-                <li><a href="#pre-historia" accesskey="1">Pré-História</a></li>
-                <li><a href="#idade-antiga" accesskey="2">Idade Antiga</a></li>
-                <li><a href="#idade-media" accesskey="3">Idade Média</a></li>
-                <li><a href="#idade-moderna" accesskey="4">Idade Moderna</a></li>
-                <li><a href="#idade-contemporanea" accesskey="5">Idade Contemporânea</a></li>
-            </ul>
-            <div class="accessibility">
-                <button id="increase-font" aria-label="Aumentar fonte">A+</button>
-                <button id="decrease-font" aria-label="Diminuir fonte">A-</button>
-                <button id="toggle-contrast" aria-label="Alternar contraste">Contraste</button>
-            </div>
-        </nav>
-        <h1>História do Mundo</h1>
-    </header>
-    <main>
-        <section id="pre-historia" class="reveal">
-            <h2>Pré-História</h2>
-            <p>
-                A Pré-História é o período que antecede o desenvolvimento da escrita. Engloba o Paleolítico, Neolítico e Idade dos Metais, marcando as primeiras manifestações culturais e tecnológicas da humanidade.
-            </p>
-        </section>
-        <section id="idade-antiga" class="reveal">
-            <h2>Idade Antiga</h2>
-            <p>
-                A Idade Antiga começa com o surgimento da escrita e abrange grandes civilizações como Egito, Mesopotâmia, Grécia e Roma, caracterizadas por avanços em política, arquitetura e ciência.
-            </p>
-        </section>
-        <section id="idade-media" class="reveal">
-            <h2>Idade Média</h2>
-            <p>
-                A Idade Média vai da queda do Império Romano até o Renascimento. É marcada pelo feudalismo, pela influência da Igreja Católica e pelas Cruzadas.
-            </p>
-        </section>
-        <section id="idade-moderna" class="reveal">
-            <h2>Idade Moderna</h2>
-            <p>
-                A Idade Moderna inicia com o Renascimento e vai até a Revolução Francesa, destacando-se pela expansão marítima, Reforma, Iluminismo e transformações políticas.
-            </p>
-        </section>
-        <section id="idade-contemporanea" class="reveal">
-            <h2>Idade Contemporânea</h2>
-            <p>
-                A Idade Contemporânea começa com a Revolução Francesa e se estende até os dias atuais, marcada por revoluções, guerras mundiais e avanços tecnológicos.
-            </p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 História do Mundo</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+:root {
+    --font-size: 1rem;
+    --bg-color: #f4f4f4;
+    --text-color: #222;
+    --contrast-bg: #222;
+    --contrast-text: #f4f4f4;
+    --transition: background 0.3s, color 0.3s, font-size 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size);
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: var(--transition);
+}
+
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    transition: background 0.2s;
+    outline: none;
+}
+
+.menu li a:focus,
+.menu li a:hover {
+    background: #34495e;
+}
+
+.accessibility {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.accessibility button {
+    background: #fff;
+    color: #2c3e50;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.accessibility button:focus {
+    outline: 2px solid #2980b9;
+}
+
+#menu-toggle {
+    background: #fff;
+    color: #2c3e50;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: none;
+    margin-right: 1rem;
+}
+
+main {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 3rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    transition: var(--transition);
+}
+
+footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.contrast {
+    background: var(--contrast-bg) !important;
+    color: var(--contrast-text) !important;
+}
+
+.contrast section {
+    background: #333 !important;
+    color: #f4f4f4 !important;
+}
+
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu {
+        flex-direction: column;
+        gap: 0;
+        background: #2c3e50;
+        width: 100%;
+        display: none;
+    }
+    .menu.open {
+        display: flex;
+    }
+    #menu-toggle {
+        display: block;
+    }
+}
